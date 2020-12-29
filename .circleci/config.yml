@@ -17,6 +17,6 @@ jobs:
           command: 'wget -O unpatched.iso https://spaceanimalz.com/f/0bd3ac88df284800a82a/?raw=1'
       - run:
           name: Run xdelta3 to apply the patch to the v1.02 melee iso
-          command: xdelta3 -dfs unpatched.iso path/to/patch.xdelta patched.iso
+          command: xdelta3 -dfs unpatched.iso patch.xdelta patched.iso
       - store_artifacts:
           path: unpatched.iso
