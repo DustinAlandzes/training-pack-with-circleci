@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    working_directory: .
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - run:
+          name: Install xdelta3 and wget
+          command: 'sudo apt install xdelta3'
+      - run:
+          name: Download v1.02 melee iso
+          command: 'wget -O unpatched.iso https://spaceanimalz.com/f/0bd3ac88df284800a82a/?raw=1'
+      - run:
+          name: Run xdelta3 to apply the patch to the v1.02 melee iso
+          command: xdelta3 -dfs unpatched.iso path/to/patch.xdelta patched.iso
+      - store_artifacts:
+          path: unpatched.iso
