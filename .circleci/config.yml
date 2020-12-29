@@ -19,4 +19,4 @@ jobs:
           name: Run xdelta3 to apply the patch to the v1.02 melee iso
           command: xdelta3 -dfs unpatched.iso patch.xdelta patched.iso
       - store_artifacts:
-          path: unpatched.iso
+          path: patched.iso
